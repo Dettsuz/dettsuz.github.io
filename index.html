@@ -87,32 +87,35 @@
             color: var(--text-main);
         }
 
-        /* イラストギャラリー（4枚グリッド） */
+        /* ギャラリー（イラスト一覧）部分 */
         .gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            /* 👇 280px を 320px に変更します */
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
             gap: 25px;
             margin: 60px 0 90px 0;
         }
 
         .gallery-item {
             background-color: var(--card-bg);
-            overflow: hidden;
+            overflow: hidden; /* 枠からはみ出た画像を切り取る設定 */
             border-radius: 6px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.02);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .gallery-item:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-        }
-
+        /* 🖼️ 画像そのものの初期設定 */
         .gallery-item img {
             width: 100%;
             height: auto;
             display: block;
             object-fit: cover;
+            /* 👇 拡大アニメーションをなめらかにする設定 */
+            transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1); 
+        }
+
+        /* ✨ カーソルを乗せた時（ホバー時）に画像だけを拡大する */
+        .gallery-item:hover img {
+            transform: scale(1.08); /* 1.08倍に拡大（数字を大きくするともっと拡大します） */
         }
 
         /* フッター（18+リンク配置） */
@@ -273,7 +276,7 @@
             </div>
             <!-- 2枚目 -->
             <div class="gallery-item">
-                <img src="2.jpg" alt="Artwork 2">
+                <img src="Jufufu_1280.jpg" alt="Artwork 2">
             </div>
             <!-- 3枚目 -->
             <div class="gallery-item">
