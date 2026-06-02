@@ -55,7 +55,8 @@
 
         /* プロフィールセクション */
         .profile {
-            margin-bottom: 60px;
+            /* 👇 変更前：margin-bottom: 60px; （ここが広く空いていました） */
+            margin-bottom: 20px; /* 下側の余白を 20px に縮小 */
         }
         
         .profile h1 {
@@ -108,8 +109,10 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 25px;
-            /* 👇 変更前：margin: 60px 0 90px 0; （下側に90px空いていました） */
-            margin: 60px 0 30px 0; /* 下側の余白を 30px に縮小 */
+            
+            /* 👇 ここを書き換えます */
+            /* 意味：上側に 30px、左右に 0、下側に 30px の余白を作ります */
+            margin: 30px 0 30px 0; 
         }
 
         .gallery-item {
@@ -287,9 +290,10 @@
             
             <!-- 各種SNSリンク（URLをお書き換えください） -->
             <div class="sns-links">
-                <a href="http://pixiv.me/dettsuz" target="_blank" rel="noopener noreferrer">pixiv</a>
+                <a href="http://pixiv.me/dettsuz" target="_blank" rel="noopener noreferrer">🅿️ixiv</a>
                 <a href="https://x.com/dettsuz" target="_blank" rel="noopener noreferrer">X (Twitter)</a>
                 <a href="https://www.instagram.com/dettsuz" target="_blank" rel="noopener noreferrer">Instagram</a>
+                <a href="https://dettsuz.substack.com" target="_blank" rel="noopener noreferrer">Substack</a>
             </div>
         </header>
 
