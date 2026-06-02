@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Portfolio | Artwork</title>
+    
+    <style>
+        /* =========================================
+           🎨 カラー設定（ここを書き換えるだけで全体の色が変わります）
+           ========================================= */
+        :root {
+            --bg-color: #fcfcfc;       /* 背景色（現在は少しだけ温かみのあるオフホワイト） */
+            --text-main: #333333;      /* メインの文字色（濃いグレー） */
+            --text-muted: #888888;     /* サブの文字色（薄いグレー） */
+            --link-hover: #b0c4de;     /* 18+リンクにカーソルを乗せた時の色（くすんだブルー） */
+            --card-bg: #ffffff;        /* イラストの背景色（真っ白） */
+        }
+
+        /* -----------------------------------------
+           以下のデザイン設計部分は、必要がなければ変更不要です
+           ----------------------------------------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        /* メインコンテナ（画面の中央に配置） */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        /* プロフィール部分 */
+        .profile {
+            margin-bottom: 60px;
+        }
+        
+        .profile h1 {
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .profile p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+        }
+
+        /* ギャラリー（イラスト一覧）部分 */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* スマホ対応の自動グリッド */
+            gap: 20px;
+            margin-bottom: 80px;
+        }
+
+        .gallery-item {
+            background-color: var(--card-bg);
+            overflow: hidden;
+            border-radius: 8px; /* 角の丸み */
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03); /* ほんの少しだけ影をつける */
+            transition: transform 0.3s ease; /* アニメーション速度 */
+        }
+
+        /* イラストにカーソルを乗せた時の動き（少し浮き上がる） */
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+
+        /* フッター（18+リンク部分） */
+        .footer {
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 1px solid #eeeeee;
+        }
+
+        .mature-link {
+            display: inline-block;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .mature-link:hover {
+            color: var(--link-hover);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <header class="profile">
+            <h1>YOUR NAME</h1>
+            <p>🎨 Character Art | ⚙️ AI+Draw / PS / LR / CSP | 🌍 JP/EN</p>
+        </header>
+
+        <main class="gallery">
+            <div class="gallery-item">
+                <img src="1.jpg" alt="Artwork 1">
+            </div>
+            
+            <div class="gallery-item">
+                <img src="2.jpg" alt="Artwork 2">
+            </div>
+            
+            <div class="gallery-item">
+                <img src="3.jpg" alt="Artwork 3">
+            </div>
+            
+            <div class="gallery-item">
+                <img src="4.jpg" alt="Artwork 4">
+            </div>
+        </main>
+
+        <footer class="footer">
+            <a href="https://linktr.ee/あなたのID" class="mature-link" target="_blank" rel="noopener noreferrer">
+                18+作品はこちら
+            </a>
+        </footer>
+
+    </div>
+
+</body>
+</html>
