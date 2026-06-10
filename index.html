@@ -4,15 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
+
     <!-- 📌 【要設定】PinterestのClaim（認証）コードはここに貼り付けます -->
     <!-- 例: <meta name="p:domain_verify" content="あなたの英数字コード"/> -->
     <meta name="p:domain_verify" content="bd4ec4bcac7269ac6fefb863dd955a5c"/>
     
     <title>でっつ (Dettsu) | Portfolio & Links</title>
     
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfilePage",
+      "name": "でっつ (Dettsu) Official Portfolio & Links",
+      "description": "でっつ (Dettsu)の公式リンク集・ポートフォリオサイトです。",
+      "mainEntity": {
+        "@type": "Person",
+        "name": "でっつ (Dettsu)",
+        "url": "https://dettsuz.github.io/",
+        "sameAs": [
+          "http://pixiv.me/dettsuz",
+          "https://x.com/dettsuz",
+          "https://www.instagram.com/dettsuz",
+          "https://dettsuz.substack.com",
+          "https://note.com/dettsuz"
+        ]
+      }
+    }
+    </script>
+    
     <style>
         /* =========================================
-           🎨 カラー＆デザイン微調整（ここをご自由に書き換えてください）
+           🎨 カラー＆デザイン設定
            ========================================= */
         :root {
             --bg-color: #fcfcfc;         /* サイト全体の背景色（オフホワイト） */
@@ -20,14 +42,14 @@
             --text-muted: #888888;       /* サブの文字色（グレー） */
             --card-bg: #ffffff;          /* イラストカードの背景色（白） */
             
-            /* 18+ボタン・ポップアップ用のカラー設定 */
-            --accent-color: #556b2f;      /* ボタンやホバー時のアクセント色（渋めのオリーブグリーン） */
-            --modal-bg: rgba(0, 0, 0, 0.6); /* ポップアップ背景の暗さ（0.0が透明、1.0が真っ黒） */
+            /* Exボタン・ポップアップ用のカラー設定 */
+            --accent-color: #5c4b6a;      /* ボタンやホバー時のアクセント色（渋めの紫・チャコール） */
+            --modal-bg: rgba(0, 0, 0, 0.6); /* ポップアップ背景の暗さ */
             --modal-box: #ffffff;        /* ポップアップのボックス自体の色（白） */
         }
 
         /* =========================================
-           以下はサイト全体のレイアウト設計（基本はそのままでOK）
+           レイアウト設計
            ========================================= */
         * {
             margin: 0;
@@ -36,15 +58,17 @@
         }
         
         body {
-            /* 角度(135deg)と、開始色・終了色を指定します */
-            /* #C0CDDC を20%透けさせる(不透明度0.8にする)指定 */
             background: linear-gradient(135deg, #ffffff 0%, rgba(192, 205, 220, 0.8) 100%);
-            /* グラデーションを画面全体に固定する設定（追加すると綺麗です） */
             background-attachment: fixed;
             color: var(--text-main);
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", sans-serif;
             line-height: 1.6;
             text-align: center;
+        }
+
+        /* モーダル表示時に背景スクロールを禁止するクラス */
+        body.modal-open {
+            overflow: hidden;
         }
 
         .container {
@@ -55,8 +79,7 @@
 
         /* プロフィールセクション */
         .profile {
-            /* 👇 変更前：margin-bottom: 60px; （ここが広く空いていました） */
-            margin-bottom: 20px; /* 下側の余白を 20px に縮小 */
+            margin-bottom: 20px;
         }
         
         .profile h1 {
@@ -74,74 +97,66 @@
             margin-bottom: 25px;
         }
 
-       /* SNSリンクの配置（パターンB：ボタン風装飾） */
+        /* SNSリンクの配置（ボタン風装飾） */
         .sns-links {
             display: flex;
             justify-content: center;
-            gap: 15px; /* ボタン同士の間隔 */
+            gap: 15px;
             margin-top: 15px;
-            flex-wrap: wrap; /* スマホで画面からはみ出さないように自動折り返し */
+            flex-wrap: wrap;
         }
         
         .sns-links a {
             color: var(--text-main);
-            text-decoration: none; /* 下線は消す */
-            font-size: 0.9rem; /* 文字を少し大きく */
+            text-decoration: none;
+            font-size: 0.9rem;
             letter-spacing: 1px;
             font-weight: 500;
-            padding: 8px 20px; /* ボタンの内側の余白（上下 8px、左右 20px） */
-            border: 1px solid var(--text-main); /* ボタンの枠線（細い黒線） */
-            border-radius: 4px; /* 角を少しだけ丸くする */
-            background-color: rgba(255, 255, 255, 0.4); /* ボタンの背景を少しだけ白く透けさせる */
+            padding: 8px 20px;
+            border: 1px solid var(--text-main);
+            border-radius: 4px;
+            background-color: rgba(255, 255, 255, 0.4);
             transition: all 0.3s ease;
         }
         
-        /* カーソルを乗せた時（ホバー時） */
         .sns-links a:hover {
-            color: #ffffff; /* 文字色を白にする */
-            background-color: var(--accent-color); /* 背景を設定したオリーブグリーンにする */
-            border-color: var(--accent-color); /* 枠線の色もオリーブグリーンにする */
-            transform: translateY(-2px); /* 少しだけ上に浮き上がらせる */
+            color: #ffffff;
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+            transform: translateY(-2px);
         }
 
-        /* ギャラリー（イラスト一覧）部分 */
+        /* ギャラリー部分 */
         .gallery {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 25px;
-            
-            /* 👇 ここを書き換えます */
-            /* 意味：上側に 30px、左右に 0、下側に 30px の余白を作ります */
             margin: 30px 0 30px 0; 
         }
 
         .gallery-item {
             background-color: var(--card-bg);
-            overflow: hidden; /* 枠からはみ出た画像を切り取る設定 */
+            overflow: hidden;
             border-radius: 6px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.02);
         }
 
-        /* 🖼️ 画像そのものの初期設定 */
         .gallery-item img {
             width: 100%;
             height: auto;
             display: block;
             object-fit: cover;
-            /* 👇 拡大アニメーションをなめらかにする設定 */
             transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1); 
         }
 
-        /* ✨ カーソルを乗せた時（ホバー時）に画像だけを拡大する */
         .gallery-item:hover img {
-            transform: scale(1.08); /* 1.08倍に拡大（数字を大きくするともっと拡大します） */
+            transform: scale(1.08);
         }
 
-        /* フッター（18+リンク配置） */
+        /* フッター（Exリンク配置） */
         .footer {
-            /* 👇 変更前：padding-top: 50px; */
-            padding-top: 20px; /* 上側の隙間を 20px に縮小 */
-            border-top: 1px solid rgba(0, 0, 0, 0.1); /* 境界線も少し薄くして自然に */
+            padding-top: 20px;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
         }
 
         .mature-links-container {
@@ -151,45 +166,40 @@
             flex-wrap: wrap;
         }
 
-        /* 18+リンク（日英併記用スタイル） */
-        /* =========================================
-           🔗 18+リンクの文字色（ネイビー）と下線の設定
-           ========================================= */
+        /* Exリンク（フォーカス対応とnofollow強化を前提とした設計） */
         .gate-trigger {
             display: block;
-            text-decoration: underline;      /* 👈 常に下線を表示します */
-            text-decoration-color: #2C4A6F;  /* 下線の色をクラシック・ネイビーに指定 */
-            text-underline-offset: 5px;      /* 文字と下線の隙間を開けてオシャレに見せます */
+            text-decoration: underline;
+            text-decoration-color: #2C4A6F;
+            text-underline-offset: 5px;
             cursor: pointer;
             padding: 10px;
             transition: opacity 0.3s ease;
         }
         
-        /* カーソルを乗せたとき（ホバー時）は、少し透明にしてクリック感を演出 */
-        .gate-trigger:hover {
+        .gate-trigger:hover, .gate-trigger:focus {
             opacity: 0.6;
+            outline: none; /* 特有の青い枠線を消し、透明度変化でフォーカスを表現 */
         }
 
-        /* 日本語（18+作品はこちら）の文字色 */
         .lang-ja {
             display: block;
-            font-size: 0.9rem;               /* リンクとして目立たせるため少し大きく調整 */
-            color: #2C4A6F;                  /* 👈 文字色をクラシック・ネイビーにします */
-            font-weight: 600;                /* 文字を少し太めにして視認性をアップ */
+            font-size: 0.9rem;
+            color: #2C4A6F;
+            font-weight: 600;
             letter-spacing: 1px;
         }
 
-        /* 英語（Click here...）の文字色 */
         .lang-en {
             display: block;
             font-size: 0.75rem;
-            color: #4A6B82;                  /* 👈 英語は少しだけ淡いスレートブルーにして強弱をつけます */
+            color: #4A6B82;
             margin-top: 4px;
             letter-spacing: 0.5px;
         }
 
         /* =========================================
-           🔒 年齢確認ポップアップ（モーダル）のCSS
+           🔒 年齢確認ポップアップ（モーダル）
            ========================================= */
         .modal-overlay {
             position: fixed;
@@ -205,10 +215,9 @@
             opacity: 0;
             pointer-events: none;
             transition: opacity 0.3s ease;
-            backdrop-filter: blur(4px); /* 背景を少しオシャレにぼかします */
+            backdrop-filter: blur(4px);
         }
 
-        /* モーダルがアクティブになった時 */
         .modal-overlay.is-active {
             opacity: 1;
             pointer-events: auto;
@@ -250,7 +259,6 @@
             gap: 20px;
         }
 
-        /* ボタン共通 */
         .modal-buttons button {
             padding: 12px 35px;
             border: none;
@@ -260,7 +268,6 @@
             transition: background-color 0.2s ease, color 0.2s ease;
         }
 
-        /* 「Yes / はい」ボタン */
         .btn-confirm {
             background-color: var(--accent-color);
             color: #ffffff;
@@ -269,7 +276,6 @@
             filter: brightness(1.2);
         }
 
-        /* 「No / いいえ」ボタン */
         .btn-cancel {
             background-color: #f0f0f0;
             color: var(--text-muted);
@@ -283,46 +289,39 @@
 
     <div class="container">
         
-        <!-- プロフィール部分 -->
         <header class="profile">
             <h1>でっつ (Dettsu)</h1>
             <p>🎨 Character Art | ⚙️ AI+Edit / PS / LR / CSP | 🌍 JP/EN</p>
             
-            <!-- 各種SNSリンク（URLをお書き換えください） -->
             <div class="sns-links">
                 <a href="http://pixiv.me/dettsuz" target="_blank" rel="noopener noreferrer">🅿️ixiv</a>
                 <a href="https://x.com/dettsuz" target="_blank" rel="noopener noreferrer">X (Twitter)</a>
                 <a href="https://www.instagram.com/dettsuz" target="_blank" rel="noopener noreferrer">Instagram</a>
                 <a href="https://dettsuz.substack.com" target="_blank" rel="noopener noreferrer">Substack</a>
+                <a href="https://note.com/dettsuz" target="_blank" rel="noopener noreferrer">Note</a>
             </div>
         </header>
 
-        <!-- ギャラリー部分（全年齢イラスト） -->
         <main class="gallery">
-            <!-- 1枚目 -->
             <div class="gallery-item">
                 <img src="Yixuan_1280.webp" alt="Artwork 1">
             </div>
-            <!-- 2枚目 -->
             <div class="gallery-item">
                 <img src="Jufufu_1280.webp" alt="Artwork 2">
             </div>
         </main>
 
-        <!-- フッター（安全な18+への導線・日英併記） -->
         <footer class="footer">
             <div class="mature-links-container">
                 
-                <!-- 🔗 【要設定】data-url="..." の中にBOOTHの成人向けURLを入れます -->
-                <a class="gate-trigger" data-url="https://dettsuz.booth.pm">
-                    <span class="lang-ja">18+作品はこちら (BOOTH)</span>
-                    <span class="lang-en">Click here for 18+ works (BOOTH)</span>
+                <a href="javascript:void(0)" class="gate-trigger" data-url="https://dettsuz.booth.pm" rel="nofollow">
+                    <span class="lang-ja">💜 イラスト集はこちら（BOOTH）</span>
+                    <span class="lang-en">💟 Illustration Collection on BOOTH</span>
                 </a>
                 
-                <!-- 🔗 【要設定】data-url="..." の中にPatreonの成人向けURLを入れます -->
-                <a class="gate-trigger" data-url="https://www.patreon.com/dettsuz">
-                    <span class="lang-ja">18+作品はこちら (Patreon)</span>
-                    <span class="lang-en">Click here for 18+ works (Patreon)</span>
+                <a href="javascript:void(0)" class="gate-trigger" data-url="https://www.patreon.com/dettsuz" rel="nofollow">
+                    <span class="lang-ja">💜 会員限定コンテンツはこちら（Patreon）</span>
+                    <span class="lang-en">💟 Early Access on Patreon</span>
                 </a>
                 
             </div>
@@ -330,9 +329,6 @@
 
     </div>
 
-    <!-- =========================================
-         🔒 年齢確認ポップアップの画面本体（通常は非表示）
-         ========================================= -->
     <div id="age-gate-modal" class="modal-overlay">
         <div class="modal-content">
             <h2>Age Verification / 年齢確認</h2>
@@ -345,27 +341,23 @@
         </div>
     </div>
 
-    <!-- =========================================
-         ⚙️ ポップアップを制御するJavaScript
-         ========================================= -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const triggers = document.querySelectorAll('.gate-trigger');
             const modal = document.getElementById('age-gate-modal');
             const btnYes = document.getElementById('btn-yes');
             const btnNo = document.getElementById('btn-no');
-            let pendingUrl = ''; // クリックされた遷移先URLを一時保存する変数
+            let pendingUrl = ''; 
 
-            // 18+リンクがクリックされた時の処理
+            // Exリンクがクリックされた時
             triggers.forEach(trigger => {
                 trigger.addEventListener('click', (e) => {
                     e.preventDefault();
-                    // data-urlの中に隠してあるURLを読み込む
                     pendingUrl = trigger.getAttribute('data-url');
                     
                     if (pendingUrl) {
-                        // ポップアップをフェードインで表示
                         modal.classList.add('is-active');
+                        document.body.classList.add('modal-open'); // 背景スクロール禁止
                     }
                 });
             });
@@ -373,18 +365,17 @@
             // 「Yes / はい」をクリックした時
             btnYes.addEventListener('click', () => {
                 if (pendingUrl) {
-                    // 新しいタブでBOOTHまたはPatreonをダイレクトに開く
                     window.open(pendingUrl, '_blank', 'noopener,noreferrer');
                 }
-                // ポップアップを閉じる
                 modal.classList.remove('is-active');
+                document.body.classList.remove('modal-open'); // 背景スクロール解除
                 pendingUrl = '';
             });
 
             // 「No / いいえ」をクリックした時
             btnNo.addEventListener('click', () => {
-                // 何もせずポップアップを閉じる
                 modal.classList.remove('is-active');
+                document.body.classList.remove('modal-open'); // 背景スクロール解除
                 pendingUrl = '';
             });
         });
