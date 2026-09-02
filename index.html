@@ -314,13 +314,16 @@
             background-color: #e5e5e5;
         }
     </style>
+    <link rel="stylesheet" href="assets/gallery.css?v=202609020933">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=LINE+Seed+JP:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+<div id="bg-clouds"></div>
 
     <div class="container">
         
         <header class="profile">
-            <h1>でっつ (Dettsu)</h1>
+            <h1>でっつ <span class="paren">(</span>Dettsu<span class="paren">)</span></h1>
             <p>🎨 Character Art | ⚙️ AI+Edit / PS / LR / CSP | 🌍 JP/EN</p>
             
             <div class="sns-links">
@@ -415,5 +418,10 @@
 
     <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "42e04b1d486240bab65679054a5c9c91"}'></script><!-- End Cloudflare Web Analytics -->
 
+<!-- gallery-clouds --><script>
+(()=>{const l=document.getElementById('bg-clouds');if(!l)return;const k=0.300,oy=0;let q=false;
+const go=()=>{const y=(oy-scrollY*k)+'px';l.style.backgroundPositionY=y;document.documentElement.style.setProperty('--cloud-y',y);q=false;};
+addEventListener('scroll',()=>{if(q)return;q=true;requestAnimationFrame(go);},{passive:true});})();
+</script>
 </body>
 </html>
