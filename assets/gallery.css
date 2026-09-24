@@ -50,7 +50,7 @@ background:radial-gradient(55% 70% at 50% 45%,rgba(255,255,255,.5),transparent 7
 .crumbs{font-size:.8rem;color:var(--text-muted);letter-spacing:1px;margin-bottom:24px}
 .crumbs a{color:var(--text-muted);text-decoration:none}.crumbs a:hover{text-decoration:underline}
 .ghead h1{font-family:"Fredoka","Segoe UI",sans-serif;font-size:1.7rem;letter-spacing:3px;font-weight:500;
-text-transform:uppercase;margin-bottom:4px;line-height:1.3}
+text-transform:uppercase;margin-bottom:4px;line-height:1.3;color:#56565f}
 .ghead p{font-size:.8rem;color:var(--text-muted);margin-bottom:20px}
 .yearnav{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-bottom:30px;font-size:.9rem}
 .yearnav a{font-family:"Fredoka","Segoe UI",sans-serif;color:var(--text-main);text-decoration:none;padding:4px 16px;
@@ -58,8 +58,8 @@ border:1px solid var(--text-main);border-radius:4px;background:rgba(255,255,255,
 .yearnav a:hover{color:#fff;background:var(--accent-color);border-color:var(--accent-color)}
 .month{margin:0 0 40px}
 .month h2{display:flex;justify-content:space-between;align-items:baseline;font-size:1rem;letter-spacing:2px;
-font-weight:600;margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid rgba(0,0,0,.1)}
-.month h2 span{font-family:"Fredoka","Segoe UI",sans-serif;font-size:1.1rem;letter-spacing:2px;font-weight:500}
+font-weight:400;margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid rgba(0,0,0,.08)}
+.month h2 span{font-family:"Fredoka","Segoe UI",sans-serif;font-size:1.1rem;letter-spacing:2px;font-weight:500;color:#56565f}
 .month h2 small{font-family:"Fredoka","Segoe UI",sans-serif;font-size:.75rem;color:var(--text-muted);font-weight:400;letter-spacing:1px}
 /* mosaic: uniform 2:3 cells, landscape spans two columns, no visible gaps */
 .grid{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:236px;gap:4px;grid-auto-flow:dense}
@@ -84,8 +84,11 @@ opacity:0;transition:opacity .3s ease;white-space:nowrap;overflow:hidden;text-ov
 /* image page */
 .hero{margin:0 auto 16px}.hero img{max-width:100%;max-height:90vh;width:auto;height:auto;display:block;margin:0 auto;
 border-radius:6px;box-shadow:0 4px 20px rgba(0,0,0,.06);background:var(--card-bg)}
-.ptitle{font-size:1.1rem;font-weight:600;letter-spacing:1px;margin-bottom:6px}
-.pdesc{font-size:.85rem;color:var(--text-muted);margin-bottom:20px;white-space:pre-line}
+.ptitle{font-size:1.1rem;font-weight:600;letter-spacing:1px;margin-bottom:11px}
+.ptags{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin-bottom:19px}
+.ptags span{font-size:.72rem;letter-spacing:.5px;color:var(--text-muted);padding:2px 10px;border-radius:999px;
+border:1px solid rgba(0,0,0,.1);background:rgba(255,255,255,.45)}
+.pdesc{font-size:.85rem;color:var(--text-main);line-height:1.8;margin-bottom:20px;white-space:pre-line}
 .pstat{font-size:.8rem;letter-spacing:.5px;color:var(--text-main);margin-bottom:4px}
 .pstat b{font-weight:600}
 .pcount{font-size:.8rem;letter-spacing:.5px;color:var(--text-main);margin-bottom:4px}
@@ -93,7 +96,7 @@ border-radius:6px;box-shadow:0 4px 20px rgba(0,0,0,.06);background:var(--card-bg
 .sib{margin-bottom:28px}.sib h3{font-size:.75rem;color:var(--text-muted);font-weight:500;letter-spacing:1px;margin-bottom:8px}
 .sibrow{display:flex;justify-content:center;flex-wrap:wrap;gap:4px}
 .sibrow .cell{height:170px;width:113px}.sibrow .cell.wide{width:230px}
-.exits{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin:8px 0 28px}
+.exits{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin:13px 0 28px}
 .exits a{font-family:"Fredoka","Segoe UI",sans-serif;color:var(--text-main);text-decoration:none;font-size:.95rem;
 letter-spacing:1px;font-weight:500;padding:8px 24px;border:1px solid var(--text-main);border-radius:4px;
 background:rgba(255,255,255,.4);transition:all .3s ease;cursor:pointer}
